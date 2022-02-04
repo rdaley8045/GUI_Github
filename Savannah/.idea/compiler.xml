@@ -9,8 +9,5 @@
         <module name="Savannah" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Savannah" target="17" />
-    </bytecodeTargetLevel>
   </component>
 </project>

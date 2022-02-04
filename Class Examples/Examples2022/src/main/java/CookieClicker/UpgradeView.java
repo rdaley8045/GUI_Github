@@ -1,9 +1,6 @@
 package CookieClicker;
 
-import javafx.geometry.Insets;
 import javafx.scene.control.Button;
-import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -22,6 +19,8 @@ public class UpgradeView extends Button implements PropertyChangeListener {
      */
     public UpgradeView(UpgradeModel infoModel){
         this.infoModel = infoModel;
+        setMaxSize(Double.MAX_VALUE, getPrefHeight());
+        //setPrefSize(Double.MAX_VALUE, getPrefHeight());
 
         //OPTIONAL..additional button styling
         
@@ -56,14 +55,18 @@ public class UpgradeView extends Button implements PropertyChangeListener {
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         int money = (int) evt.getNewValue();
+
+        //enable disable as avilable
         if(infoModel.canPurchase(money)) {
-            setDisable(false); //note: both setDisabled and setDisable are legal, but only setDisable works on initalizations...
+            //note: both setDisabled and setDisable are legal,
+            // but only setDisable works on initialization...
+            setDisable(false);
         }
         else{
             setDisable(true);
         }
 
-        setText(infoModel.getName() + "\nNext Upgrade: $" + infoModel.GetNextCost() +
-                "\nFor " + infoModel.getAutoClick() + " clicks per second" );
+        setText(infoModel.getName() + "\nNext Upgrade: $" + infoModel.getLevelCost() +
+                "\nCurrent " + infoModel.getAutoClick() + " clicks per second" );
     }
 }

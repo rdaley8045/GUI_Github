@@ -2,7 +2,6 @@ module rebenitsch {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.desktop;
-    requires javafx.graphics;
 
     exports Basics;
     exports CookieClicker;
@@ -11,4 +10,7 @@ module rebenitsch {
 
     opens sampleWYSIWYG to javafx.fxml;
     exports sampleWYSIWYG;
+
+    opens Scratch to javafx.fxml;
+    exports Scratch;
 }

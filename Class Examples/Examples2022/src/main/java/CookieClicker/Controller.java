@@ -11,31 +11,44 @@ import javafx.util.Duration;
 import java.beans.PropertyChangeSupport;
 
 public class Controller {
-    private Layout layout;
-    private CookieClone model;
+
+    //stuff for timers
     private long firstCall = 0;
     private boolean hidden = true;
-    
-    public Controller(CookieClone clone, Layout layout) {
+
+    private Layout layout;
+    private Model model;
+
+    public Controller(Model data, Layout layout) {
         this.layout = layout;
-        model = clone;
-        
+        model = data;
+
+        /*
+        * Controllers job to connect events to views
+         */
         layout.output.addEventFilter(ActionEvent.ACTION, new CountListener());
 
-        Timeline timer = new Timeline(new KeyFrame(Duration.seconds(1),new Tick()));
+        /*
+        * Setup the timer
+         */
+        Timeline timer = new Timeline(new KeyFrame(Duration.seconds(1), new Tick()));
         timer.setCycleCount(Timeline.INDEFINITE);
         timer.play();
         firstCall = System.currentTimeMillis();
 
     }
 
-    public void addUpgrade(UpgradeModel upgrade, PropertyChangeSupport subject) {
-        ObservableList<Node> list = layout.panel.getChildren();
-        UpgradeView v = new UpgradeView(upgrade);
-        subject.addPropertyChangeListener(v);
-        v.addEventHandler(ActionEvent.ACTION,  new BuyUpgrade());
-        list.add(v);
+    /**
+     * Handles normal click increase in money
+     */
+    private class CountListener implements EventHandler<ActionEvent> {
+
+        @Override
+        public void handle(ActionEvent e) {
+            model.adjustClickTotal(1); // tell the model to update
+        }
     }
+
 
 
     /**
@@ -46,21 +59,11 @@ public class Controller {
         @Override
         public void handle(ActionEvent e) {
             int money = model.getClickCnt();
-            UpgradeView button = (UpgradeView)e.getSource();
-            model.clickCookie(button.getModel().purchase(money));
+            UpgradeView button = (UpgradeView) e.getSource();
+            button.getModel().purchase(money);
         }
     }
 
-    /**
-     * Handles normal click increase in money
-     */
-    private class CountListener implements EventHandler<ActionEvent>{
-
-        @Override
-        public void handle(ActionEvent e) {
-            model.clickCookie(); // tell the model to update
-        }
-    }
 
     /**
      * Handles the autoclick increase in "money"
@@ -69,19 +72,38 @@ public class Controller {
 
         @Override
         public void handle(ActionEvent event) {
-            //add autoclick to total...observer pattern handles the rest
-            model.ApplyAutoClick();
 
             long currentTime = System.currentTimeMillis();
 
             //debugging statement
             // wait 5 seconds to display last upgrade
-            System.out.println((currentTime - firstCall)/1000.0);
+            System.out.println((currentTime - firstCall) / 1000.0);
 
-            if(hidden && (currentTime - firstCall)/1000.0 > 10){
-                model.AddUpgrade("upgrade3.txt");
+            if (hidden && (currentTime - firstCall) / 1000.0 > 10) {
+                AddUpgrade("upgrade3.txt");
                 hidden = false;
+
             }
+            int count = model.getAutoClickCount();
+            model.adjustClickTotal(count);
         }
     }
+
+    public void AddUpgrade(String upgradeFile) {
+        /*
+         *  observer pattern example
+         * and add upgrade buttons to side pane
+         */
+        UpgradeModel upgrade = new UpgradeModel(upgradeFile, model);
+        model.addUpgradeModel(upgrade);
+
+        UpgradeView upgradeView = new UpgradeView(upgrade);
+        ObservableList<Node> list = layout.panel.getChildren();
+        list.add(upgradeView);
+
+        upgradeView.addEventHandler(ActionEvent.ACTION, new BuyUpgrade());
+        model.addObserver(upgradeView);
+    }
+
+
 }

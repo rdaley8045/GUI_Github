@@ -10,44 +10,46 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UpgradeModel {
+    private Model model; //back reference since a purchase affect main model
     private int autoClickAmount = 0;
     private int level = 0;
     private String name = "";
     private ArrayList<Integer> cost = new ArrayList<>();
     private ArrayList<Integer> effect = new ArrayList<>();
 
-    public UpgradeModel(String fileName)  {
+    public UpgradeModel(String fileName, Model m) {
+        model = m;
 
         //read in file
-        try{
+        try {
             InputStream inStream = getClass().getResourceAsStream(fileName);
 
             //Scanner in = new Scanner(Paths.get(file)); //old way
-            Scanner in = new Scanner(inStream );
+            Scanner in = new Scanner(inStream);
             name = in.nextLine();
 
             String line = in.nextLine();
             String[] tokens = line.split(" ");
 
-            for( int i = 0; i < tokens.length; i+=2){
+            for (int i = 0; i < tokens.length; i += 2) {
                 cost.add(Integer.parseInt(tokens[i]));
-                effect.add(Integer.parseInt(tokens[i+1]));
+                effect.add(Integer.parseInt(tokens[i + 1]));
             }
             in.close();
-        }catch (NullPointerException e){
+        } catch (NullPointerException e) {
             System.out.println("file not found");
         }
     }
 
-    public double GetNextCost() {
+    public double getLevelCost() {
         return cost.get(level);
     }
 
     public boolean canPurchase(double money) {
-        return cost.size()> 0 && money >= cost.get(level);
+        return cost.size() > 0 && money >= cost.get(level);
     }
 
-    public int getAutoClick(){
+    public int getAutoClick() {
         return autoClickAmount;
     }
 
@@ -59,13 +61,13 @@ public class UpgradeModel {
         return name;
     }
 
-    public int purchase(int money) {
+    public void purchase(int money) {
         int upgradeCost = 0;
-        if(canPurchase(money)){
+        if (canPurchase(money)) {
             autoClickAmount += effect.get(level);
             upgradeCost = cost.get(level);
             level++;
+            model.adjustClickTotal(-upgradeCost);
         }
-        return -upgradeCost;
     }
 }

@@ -46,11 +46,11 @@ public class LayoutExamples extends Application {
 
         //only uncomment out one at a time
         //
-//        root = makeFlowContents();
+        //root = makeFlowContents();
         root = makeBoxContents();
-//        root = makeBorderContents();
-//        root = makeGridContents();
-//        root = makeStackContents(); //optional
+        //root = makeBorderContents();
+        //root = makeGridContents();
+        //root = makeStackContents(); //optional
 
         Scene scene = new Scene(root,WIDTH , HEIGHT);
         primaryStage.setScene(scene);
@@ -105,7 +105,8 @@ public class LayoutExamples extends Application {
 
 
         ObservableList<Node> list = root.getChildren();
-        //output.setMaxWidth(Double.POSITIVE_INFINITY);
+        //uncomment to allow the text node to expand
+        output.setMaxWidth(Double.POSITIVE_INFINITY);
         list.add(output);
         list.add(input);
         list.add(button);
@@ -130,7 +131,7 @@ public class LayoutExamples extends Application {
         //see what happens when the size isn't
         // limited on area2 when center is gone!
         root.setLeft(area2);
-        root.setRight(area3);
+        //root.setRight(area3);
         //BorderPane.setMargin(area1, new Insets(10)); //CLASS method to set margins
         return root;
     }
