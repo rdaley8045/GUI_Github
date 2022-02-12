@@ -2,6 +2,7 @@ package daley_raymond.savannah;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -16,18 +17,24 @@ public class Layout {
     private Label died;
     private Label filled;
     private Label animalInfo;
-    private Controller controller;
+    private Savannah savannah;
     private ComboBox<String> animalList;
     GridPane root;
-    Button newDay;
+    private Button newDay;
+    private Button size1;
+    private Button size2;
+    private Button size3;
     private ToggleGroup insertionSelector;
     private RadioButton addAnimal;
     private RadioButton viewAnimal;
+    private Controller controller;
 
 
-    public Layout(Savannah savannah) {
+    public Layout(Savannah sav) {
+        savannah = sav;
         root = new GridPane();
         grid = new SavannahView();
+        controller = new Controller(this);
         grid.setModel(savannah);
 
         RowConstraints rc1 = new RowConstraints();
@@ -58,9 +65,9 @@ public class Layout {
         BorderPane top = new BorderPane();
 
         Label resize = new Label("Resize: ");
-        Button size1 = new Button("3X3");
-        Button size2 = new Button("5X5");
-        Button size3 = new Button("8X8");
+        size1 = new Button("3X3");
+        size2 = new Button("5X5");
+        size3 = new Button("8X8");
         VBox vbox1 = new VBox(size1, size2, size3);
         HBox hbox1 = new HBox(resize, vbox1);
         hbox1.setAlignment(Pos.CENTER_RIGHT);
@@ -81,8 +88,6 @@ public class Layout {
         /*
         Board pane for the left side of the center screen
          */
-        BorderPane left = new BorderPane();
-
         ObservableList<String> options = FXCollections.observableArrayList("Cheetah", "Zebra");
         animalList = new ComboBox<>(options);
         animalList.getSelectionModel().select(0);
@@ -98,24 +103,30 @@ public class Layout {
         viewAnimal.setAlignment(Pos.CENTER);
 
         VBox vbox4 = new VBox(animalList, addAnimal,viewAnimal);
-        vbox4.setPadding(new Insets(15, 0,0,0));
-        vbox4.setAlignment(Pos.CENTER);
-        left.setTop(vbox4);
+        vbox4.setAlignment(Pos.BOTTOM_CENTER);
+
 
         animalInfo = new Label("Animal Info");
         VBox vbox5 = new VBox(animalInfo);
         vbox5.setAlignment(Pos.CENTER);
-        left.setCenter(vbox5);
 
 
         root.add(top,0,0, 3, 1);
-        root.add(left,0,1,1,2);
+        root.add(vbox4,0,1);
+        root.add(vbox5, 0 ,2);
         root.add(grid, 1, 1,2,3);
+        newDay.addEventFilter(ActionEvent.ACTION, new Controller.NewDayButton());
+        size1.addEventFilter(ActionEvent.ACTION, new Controller.New3x3Map());
+        size2.addEventFilter(ActionEvent.ACTION, new Controller.New5x5Map());
+        size3.addEventFilter(ActionEvent.ACTION, new Controller.New8x8Map());
 
     }
 
     public void setDay(int dayCount){
         day.setText("Day: " + String.valueOf(dayCount));
     }
+    public void setDied(int diedCount) { died.setText("Died: " + String.valueOf(diedCount));}
+    public void setFilled(int fillCount) {filled.setText("Filled: " + String.valueOf(fillCount));}
+    public void resize(int cols, int rows) {grid.resize(cols,rows);}
 
 }

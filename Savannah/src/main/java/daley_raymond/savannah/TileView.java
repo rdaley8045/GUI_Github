@@ -12,4 +12,12 @@ public class TileView extends Button{
         this.setText("N:0");
 //        Tile tile = new Tile();
     }
+
+    public int getI(){
+        return iValue;
+    }
+
+    public int getJ(){
+        return jValue;
+    }
 }

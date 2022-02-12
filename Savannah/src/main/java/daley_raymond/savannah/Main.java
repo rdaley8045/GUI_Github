@@ -22,8 +22,7 @@ public class Main extends Application {
 //    View
     private Layout layout;
 
-//    Controller
-    private Controller ctrl;
+
 
     public static void main(String[] args) {
         launch(args);
@@ -39,8 +38,6 @@ public class Main extends Application {
         Scene scene = new Scene(layout.root,WIDTH , HEIGHT);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Savannah Simulator");
-
-        ctrl = new Controller (savannah,layout);
 
         //make visible
         primaryStage.show();

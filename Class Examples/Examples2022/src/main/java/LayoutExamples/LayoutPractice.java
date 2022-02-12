@@ -40,12 +40,12 @@ public class LayoutPractice extends Application {
         //only uncomment out one at a time
         //
 
-        //root = makeVBox();
-        //root = makeGridPracticeContents();
-        //root = makeEmbeddedPracticeContents();
-        root = makePracticeA();
-        //root = makePracticeB();
-        //root = makePracticeC();
+        root = makeVBox();
+//        root = makeGridPracticeContents();
+//        root = makeEmbeddedPracticeContents();
+//        root = makePracticeA();
+//        root = makePracticeB();
+//        root = makePracticeC();
 
         Scene scene = new Scene(root,WIDTH , HEIGHT);
         primaryStage.setScene(scene);

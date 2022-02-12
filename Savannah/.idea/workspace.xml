@@ -5,88 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4eebf947-04dd-4dd3-8f2f-75bed56c1290" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/GUI_Github.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_7_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_7_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_7_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_7_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/.idea/libraries/Maven__org_openjfx_javafx_base_17_ea_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/.idea/libraries/Maven__org_openjfx_javafx_base_win_17_ea_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/.idea/libraries/Maven__org_openjfx_javafx_controls_17_ea_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/.idea/libraries/Maven__org_openjfx_javafx_controls_win_17_ea_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/.idea/libraries/Maven__org_openjfx_javafx_fxml_17_ea_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/.idea/libraries/Maven__org_openjfx_javafx_fxml_win_17_ea_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/.idea/libraries/Maven__org_openjfx_javafx_graphics_17_ea_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/.idea/libraries/Maven__org_openjfx_javafx_graphics_win_17_ea_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/.idea/workspace (PRS-MCL-305's conflicted copy 2022-01-26).xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Animal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Cheetah.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Layout.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/None.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Savannah.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/SavannahView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Tile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/TileView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Zebra.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Class Examples/Examples2022/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Class Examples/Examples2022/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Class Examples/Examples2022/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Class Examples/Examples2022/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Class Examples/Examples2022/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Class Examples/Examples2022/Examples2022.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/Examples2022.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Class Examples/Examples2022/hs_err_pid23313.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Class Examples/Examples2022/hs_err_pid23368.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Class Examples/Examples2022/src/main/java/CookieClicker/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/src/main/java/CookieClicker/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Class Examples/Examples2022/src/main/java/CookieClicker/CookieClone.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/src/main/java/CookieClicker/CookieClone.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Class Examples/Examples2022/src/main/java/CookieClicker/Layout.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/src/main/java/CookieClicker/Layout.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Class Examples/Examples2022/src/main/java/CookieClicker/UpgradeModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/src/main/java/CookieClicker/UpgradeModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Class Examples/Examples2022/src/main/java/CookieClicker/UpgradeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/src/main/java/CookieClicker/UpgradeView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Class Examples/Examples2022/src/main/java/LayoutExamples/LayoutExamples.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/src/main/java/LayoutExamples/LayoutExamples.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Class Examples/Examples2022/src/main/java/LayoutExamples/LayoutPractice.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/src/main/java/LayoutExamples/LayoutPractice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Class Examples/Examples2022/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Class Examples/Examples2022/target/classes/CookieClicker/Controller$BuyUpgrade.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/target/classes/CookieClicker/Controller$BuyUpgrade.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Class Examples/Examples2022/target/classes/CookieClicker/Controller$CountListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/target/classes/CookieClicker/Controller$CountListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Class Examples/Examples2022/target/classes/CookieClicker/Controller$Tick.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/target/classes/CookieClicker/Controller$Tick.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Class Examples/Examples2022/target/classes/CookieClicker/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/target/classes/CookieClicker/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Class Examples/Examples2022/target/classes/CookieClicker/CookieClone.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/target/classes/CookieClicker/CookieClone.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Class Examples/Examples2022/target/classes/CookieClicker/Layout.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/target/classes/CookieClicker/Layout.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Class Examples/Examples2022/target/classes/CookieClicker/UpgradeModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/target/classes/CookieClicker/UpgradeModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Class Examples/Examples2022/target/classes/CookieClicker/UpgradeView.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/target/classes/CookieClicker/UpgradeView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Class Examples/Examples2022/target/classes/LayoutExamples/LayoutExamples.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/target/classes/LayoutExamples/LayoutExamples.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Class Examples/Examples2022/target/classes/LayoutExamples/LayoutPractice.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/target/classes/LayoutExamples/LayoutPractice.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Class Examples/Examples2022/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Class Examples/Examples2022/target/classes/module-info.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_8_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_8_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_8_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_8_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_17_0_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_mac_aarch64_17_0_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_17_0_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_mac_aarch64_17_0_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_17_0_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_mac_aarch64_17_0_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_17_0_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_mac_aarch64_17_0_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Savannah.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/HelloApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/HelloController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Animal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Cheetah.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Cheetah.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Layout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Layout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/None.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/None.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Savannah.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Savannah.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/SavannahView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/SavannahView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/TileView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/TileView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Zebra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Zebra.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/daley_raymond/savannah/Controller$NewDayButton.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/daley_raymond/savannah/Controller$NewDayButton.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/daley_raymond/savannah/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/daley_raymond/savannah/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/daley_raymond/savannah/Layout.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/daley_raymond/savannah/Layout.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/daley_raymond/savannah/Savannah.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/daley_raymond/savannah/Savannah.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/daley_raymond/savannah/SavannahView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/daley_raymond/savannah/SavannahView.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,6 +32,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
