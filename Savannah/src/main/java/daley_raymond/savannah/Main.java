@@ -30,7 +30,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        //group is an area that can hold Nodes (non resizable)
         savannah = new Savannah();
 
         layout = new Layout(savannah);

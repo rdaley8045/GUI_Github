@@ -6,10 +6,12 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.RowConstraints;
 
-public class SavannahView extends GridPane{
+
+public class SavannahView extends GridPane {
     private int col;
     private int row;
     TileView[][] grid;
+    private TileView buttons;
 
     public void setModel(Savannah savannah){
         row = savannah.getRowSize();
@@ -31,7 +33,7 @@ public class SavannahView extends GridPane{
 
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
-                TileView buttons = new TileView(i, j);
+                buttons = new TileView();
                 this.add(buttons,i,j);
                 buttons.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
                 grid[i][j] = buttons;
@@ -47,6 +49,5 @@ public class SavannahView extends GridPane{
         savannah.setSize(col,row);
         this.setModel(savannah);
     }
-
 
 }

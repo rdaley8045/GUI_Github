@@ -2,20 +2,19 @@ package daley_raymond.savannah;
 
 public class Animal {
 
-    private int health;
-    private String name;
-
-    public int getHealth(){
-        return health;
-    }
-
-    public String getName(){
-        return "none";
-    }
-
-    public void newDay(){}
-
-    public String getTileView(){
-        return "N:0";
-    }
+//    private int health;
+//    private String name;
+//    private String
+//
+//    public void setHealth(int level){
+//        health = level;
+//    }
+//
+//    public void setName(String value){
+//        name = value;
+//    }
+//
+//    public void newDay(){}
+//
+//    public void getTileView(){}
 }

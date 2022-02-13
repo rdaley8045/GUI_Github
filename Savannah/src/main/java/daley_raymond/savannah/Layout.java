@@ -12,21 +12,21 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 
 public class Layout {
-    private SavannahView grid;
+    SavannahView grid;
     private Label day;
     private Label died;
     private Label filled;
     private Label animalInfo;
     private Savannah savannah;
-    private ComboBox<String> animalList;
+    ComboBox<String> animalList;
     GridPane root;
     private Button newDay;
     private Button size1;
     private Button size2;
     private Button size3;
-    private ToggleGroup insertionSelector;
-    private RadioButton addAnimal;
-    private RadioButton viewAnimal;
+    ToggleGroup insertionSelector;
+    RadioButton addAnimal;
+    RadioButton viewAnimal;
     private Controller controller;
 
 

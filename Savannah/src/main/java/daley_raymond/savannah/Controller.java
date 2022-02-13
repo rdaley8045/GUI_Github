@@ -3,16 +3,19 @@ package daley_raymond.savannah;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.control.Toggle;
 
 public class Controller {
    private static Layout layout;
    private static Savannah savannah;
+   private static Event animal;
+
 
 
     Controller(Layout lay){
-        this.layout = lay;
+        layout = lay;
         savannah = new Savannah();
 
 
@@ -29,10 +32,8 @@ public class Controller {
 //
 //        layout.animalList.addEventFilter(ActionEvent.ACTION,actionEvent -> {
 //            String selectedAnimal = layout.animalList.getSelectionModel().getSelectedItem();
-////            savannah.setAnimal(selectedAnimal);
+//            savannah.setAnimal(selectedAnimal);
 //        });
-
-//        layout.grid.addEventFilter(ActionEvent.ACTION, new UpdateSquare());
     }
 
 
@@ -74,18 +75,5 @@ public class Controller {
             layout.setFilled(savannah.resetFilledCount());
         }
     }
-
-//    public class UpdateSquare implements EventHandler<ActionEvent>{
-//        @Override
-//        public void handle(ActionEvent event){
-//            if (savannah.getIsAddAnimal()){
-//                System.out.println("Test");
-//            }
-//        }
-//    }
-
-
-
-
 
 }
