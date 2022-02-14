@@ -1,41 +1,31 @@
 package daley_raymond.savannah;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
-import javafx.scene.control.Toggle;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 
 public class Controller {
    private static Layout layout;
    private static Savannah savannah;
-   private static Event animal;
 
 
 
-    Controller(Layout lay){
-        layout = lay;
-        savannah = new Savannah();
-
-
-//        layout.insertionSelector.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
-//            @Override
-//            public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
-//                boolean temp1 = layout.addAnimal.isSelected();
-//                boolean temp2 = layout.viewAnimal.isSelected();
-//                savannah.setIsAddAnimal(temp1);
-//                savannah.setIsViewAnimal(temp2);
-//
-//            }
-//        });
-//
-//        layout.animalList.addEventFilter(ActionEvent.ACTION,actionEvent -> {
-//            String selectedAnimal = layout.animalList.getSelectionModel().getSelectedItem();
-//            savannah.setAnimal(selectedAnimal);
-//        });
+    Controller(){
     }
 
+    public void setLayout(Layout lay){
+        layout = lay;
+    }
+
+    public void setModel(Savannah model){
+        savannah = model;
+        layout.grid.setModel(model);
+        savannah.setDisplay(layout.grid);
+        savannah.setSize(3,3);
+    }
 
     public static class NewDayButton implements EventHandler<ActionEvent>{
         public void handle(ActionEvent event) {
@@ -47,32 +37,74 @@ public class Controller {
         }
     }
 
-    public static class New3x3Map implements EventHandler<ActionEvent>{
-        @Override
-        public void handle(ActionEvent event) {
-            layout.resize(3,3);
-            layout.setDay(savannah.resetDayCount());
-            layout.setDied(savannah.resetDeadCount());
-            layout.setFilled(savannah.resetFilledCount());
+    public ResizeMap setNewMap(int i, int j){return new ResizeMap(i,j);}
+
+    private class ResizeMap implements EventHandler<ActionEvent>{
+        private int row;
+        private int cols;
+
+        ResizeMap (int i, int j){
+            row = i;
+            cols = j;
         }
-    }
-    public static class New5x5Map implements EventHandler<ActionEvent>{
+
         @Override
-        public void handle(ActionEvent event) {
-            layout.resize(5,5);
-            layout.setDay(savannah.resetDayCount());
-            layout.setDied(savannah.resetDeadCount());
-            layout.setFilled(savannah.resetFilledCount());
+        public void handle (ActionEvent e){
+            layout.grid.resize(row, cols,savannah);
+            savannah.setSize(row,cols);
+            layout.setDay(savannah.getDayCount());
+            layout.setDied(savannah.getDeadCount());
+            layout.setFilled(savannah.getFilledCount());
+            layout.setAnimalInfo(savannah.getAnimalInfo());
+
         }
     }
 
-    public static class New8x8Map implements EventHandler<ActionEvent>{
+    public UpdateSelection getComboBox(){
+        return new UpdateSelection();
+    }
+
+    private class UpdateSelection implements EventHandler<ActionEvent>{
         @Override
-        public void handle(ActionEvent event) {
-            layout.resize(8,8);
-            layout.setDay(savannah.resetDayCount());
-            layout.setDied(savannah.resetDeadCount());
-            layout.setFilled(savannah.resetFilledCount());
+        public void handle(ActionEvent e){
+            savannah.setAction((ComboBox)e.getSource());
+        }
+    }
+
+    public UpdateRadio getAddRadioButton(){
+        return new UpdateRadio();
+    }
+
+    public UpdateRadio getViewRadioButton(){
+        return new UpdateRadio();
+    }
+
+    private class UpdateRadio implements EventHandler<ActionEvent>{
+        @Override
+        public void handle(ActionEvent e){
+            savannah.setOption((RadioButton)e.getSource());
+        }
+    }
+
+    public AddViewAnimal getButtonEvent(){
+        return new AddViewAnimal();
+    }
+
+    private class AddViewAnimal implements EventHandler<ActionEvent>{
+        @Override
+        public void handle(ActionEvent e){
+            TileView button = (TileView) e.getSource();
+
+            if(savannah.isAdd()) {
+                savannah.handleAdd(button.getI(), button.getJ());
+                layout.setDay(savannah.getDayCount());
+                layout.setDied(savannah.getDeadCount());
+                layout.setFilled(savannah.getFilledCount());
+            }
+            else{
+                savannah.handleView(button.getI(), button.getJ());
+                layout.setAnimalInfo(savannah.getAnimalInfo());
+            }
         }
     }
 

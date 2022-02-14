@@ -22,6 +22,8 @@ public class Main extends Application {
 //    View
     private Layout layout;
 
+//    Controller
+    private Controller controller;
 
 
     public static void main(String[] args) {
@@ -31,8 +33,11 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         savannah = new Savannah();
+        controller = new Controller();
 
-        layout = new Layout(savannah);
+        layout = new Layout(controller);
+
+        controller.setModel(savannah);
 
         Scene scene = new Scene(layout.root,WIDTH , HEIGHT);
         primaryStage.setScene(scene);

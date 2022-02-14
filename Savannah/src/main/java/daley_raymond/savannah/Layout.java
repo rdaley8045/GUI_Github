@@ -17,7 +17,6 @@ public class Layout {
     private Label died;
     private Label filled;
     private Label animalInfo;
-    private Savannah savannah;
     ComboBox<String> animalList;
     GridPane root;
     private Button newDay;
@@ -30,12 +29,11 @@ public class Layout {
     private Controller controller;
 
 
-    public Layout(Savannah sav) {
-        savannah = sav;
+    public Layout(Controller ctrl) {
+        controller = ctrl;
+        controller.setLayout(this);
         root = new GridPane();
-        grid = new SavannahView();
-        controller = new Controller(this);
-        grid.setModel(savannah);
+        grid = new SavannahView(controller);
 
         RowConstraints rc1 = new RowConstraints();
         rc1.setVgrow(Priority.ALWAYS);
@@ -91,6 +89,7 @@ public class Layout {
         ObservableList<String> options = FXCollections.observableArrayList("Cheetah", "Zebra");
         animalList = new ComboBox<>(options);
         animalList.getSelectionModel().select(0);
+        animalList.setOnAction(controller.getComboBox());
 
         insertionSelector = new ToggleGroup();
         addAnimal = new RadioButton("Add");
@@ -101,6 +100,8 @@ public class Layout {
         viewAnimal = new RadioButton("View");
         viewAnimal.setToggleGroup(insertionSelector);
         viewAnimal.setAlignment(Pos.CENTER);
+        addAnimal.setOnAction(controller.getAddRadioButton());
+        viewAnimal.setOnAction(controller.getViewRadioButton());
 
         VBox vbox4 = new VBox(animalList, addAnimal,viewAnimal);
         vbox4.setAlignment(Pos.BOTTOM_CENTER);
@@ -116,9 +117,9 @@ public class Layout {
         root.add(vbox5, 0 ,2);
         root.add(grid, 1, 1,2,3);
         newDay.addEventFilter(ActionEvent.ACTION, new Controller.NewDayButton());
-        size1.addEventFilter(ActionEvent.ACTION, new Controller.New3x3Map());
-        size2.addEventFilter(ActionEvent.ACTION, new Controller.New5x5Map());
-        size3.addEventFilter(ActionEvent.ACTION, new Controller.New8x8Map());
+        size1.addEventFilter(ActionEvent.ACTION, controller.setNewMap(3,3));
+        size2.addEventFilter(ActionEvent.ACTION, controller.setNewMap(5,5));
+        size3.addEventFilter(ActionEvent.ACTION, controller.setNewMap(8,8));
 
     }
 
@@ -127,6 +128,6 @@ public class Layout {
     }
     public void setDied(int diedCount) { died.setText("Died: " + String.valueOf(diedCount));}
     public void setFilled(int fillCount) {filled.setText("Filled: " + String.valueOf(fillCount));}
-    public void resize(int cols, int rows) {grid.resize(cols,rows);}
+    public void setAnimalInfo(String info) {animalInfo.setText(info);}
 
 }

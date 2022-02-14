@@ -1,22 +1,26 @@
 package daley_raymond.savannah;
 
 
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
-
 public class Tile{
-    private String name = "nano";
-    private PropertyChangeSupport subject;
+    private Animal animal = null;
 
-    public Tile(){
-        subject = new PropertyChangeSupport(this);
+    Tile(){}
+
+    void newAnimal(String action, String type){
+        if (action == "Add" & type == "Cheetah"){
+            animal = new Cheetah();
+        }
+        else if (action == "Add" & type == "Zebra"){
+            animal = new Zebra();
+        }
+        else if (action == "" & type == "None"){
+            animal = new None();
+        }
+        else{
+            animal = null;
+        }
     }
 
-    public void addObserver(PropertyChangeListener obv){
-        subject.addPropertyChangeListener(obv);
-    }
+    public Animal getAnimal(){return animal;}
 
-    public void adjustTileSquare(){
-        subject.firePropertyChange("click",null,this.name);
-    }
 }

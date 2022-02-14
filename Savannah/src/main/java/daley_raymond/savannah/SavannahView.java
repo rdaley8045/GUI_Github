@@ -1,53 +1,61 @@
 package daley_raymond.savannah;
 
-import javafx.beans.binding.DoubleExpression;
+import javafx.event.ActionEvent;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Priority;
 import javafx.scene.layout.RowConstraints;
+import java.util.ArrayList;
 
 
 public class SavannahView extends GridPane {
-    private int col;
-    private int row;
-    TileView[][] grid;
-    private TileView buttons;
+    private int cols =3;
+    private int rows =3;
+    TileView buttons;
+    Controller controller;
+    ArrayList<TileView> grid;
+
+
+    SavannahView(Controller ctrl){
+        controller = ctrl;
+    }
 
     public void setModel(Savannah savannah){
-        row = savannah.getRowSize();
-        col = savannah.getColSize();
 
-        grid = new TileView[row][col];
-
+        grid = new ArrayList<>();
         ColumnConstraints columnConstraints = new ColumnConstraints();
         columnConstraints.setPercentWidth(100);
-        for (int i = 0; i < col; i++) {
+        for (int i = 0; i < cols; i++) {
             this.getColumnConstraints().add(columnConstraints);
         }
 
         RowConstraints rowConstraints = new RowConstraints();
         rowConstraints.setPercentHeight(100);
-        for (int i = 0; i < row; i++) {
+        for (int i = 0; i < rows; i++) {
             this.getRowConstraints().add(rowConstraints);
         }
 
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < col; j++) {
-                buttons = new TileView();
-                this.add(buttons,i,j);
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                buttons = new TileView(i,j);
+                grid.add(buttons);
                 buttons.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-                grid[i][j] = buttons;
+                buttons.addEventFilter(ActionEvent.ACTION, controller.getButtonEvent());
+                add(buttons,i,j);
             }
         }
     }
 
-    public void resize (int col, int row){
+    public void resize (int col, int row, Savannah savannah){
+        cols = col;
+        rows = row;
         this.getChildren().clear();
         this.getRowConstraints().clear();
         this.getColumnConstraints().clear();
-        Savannah savannah = new Savannah();
-        savannah.setSize(col,row);
         this.setModel(savannah);
+
     }
 
+    public TileView getTileView (int i, int j){
+        return grid.get(i*cols+j);
+    }
 }

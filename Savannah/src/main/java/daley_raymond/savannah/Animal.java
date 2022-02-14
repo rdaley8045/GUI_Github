@@ -1,20 +1,31 @@
 package daley_raymond.savannah;
 
-public class Animal {
+public abstract class Animal implements Cloneable {
 
-//    private int health;
-//    private String name;
-//    private String
-//
-//    public void setHealth(int level){
-//        health = level;
-//    }
-//
-//    public void setName(String value){
-//        name = value;
-//    }
-//
-//    public void newDay(){}
-//
-//    public void getTileView(){}
+    protected String name;
+    protected String code;
+    protected int health;
+    protected int lossRate;
+    protected Boolean visited;
+
+    public int newDay() {
+        health -= lossRate;
+
+        if (health <= 0){
+            health = 0;
+        }
+
+        return health;
+    }
+
+    public int getHealth(){return health;}
+    public String getName(){return name;}
+    public String getCode(){return code;}
+
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException{
+        return super.clone();
+    }
+
 }

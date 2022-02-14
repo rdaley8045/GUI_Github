@@ -1,26 +1,11 @@
 package daley_raymond.savannah;
 
 public class None extends Animal {
-    private int health;
-    private String name;
-
-    public None(){
-        health = 0;
+    None(){
         name = "None";
+        code = "N:";
+        health = 0;
+        lossRate = 0;
+        visited = false;
     }
-
-    public int getHealth(){
-        return health;
-    }
-
-    public String getName(){
-        String string = name+"/nHealth:"+String.valueOf(health);
-        return string;
-    }
-
-    public String getTileView(){
-        String string = "N:0";
-        return string;
-    }
-
 }

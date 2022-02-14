@@ -1,5 +1,9 @@
 package daley_raymond.savannah;
 
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.RadioButton;
+import java.beans.PropertyChangeSupport;
+
 public class Savannah {
 
     private int dayCount;
@@ -7,10 +11,13 @@ public class Savannah {
     private int deadCount;
     private int col = 3;
     private int row = 3;
+    private Tile[][] model;
+    private String type = "Cheetah"; //Cheetah, Zebra
+    private String  option = "Add";
+    private PropertyChangeSupport[][] subject;
     private SavannahView view;
-    private boolean isAddAnimal;
-    private boolean isViewAnimal;
-    private String animal;
+    private String info;
+
 
 
     public Savannah (){
@@ -23,6 +30,7 @@ public class Savannah {
         col = cols;
         row = rows;
 
+        createNewMap();
     }
     public int getDayCount() {return dayCount;}
 
@@ -30,33 +38,95 @@ public class Savannah {
 
     public int getFilledCount() {return filledCount;}
 
-    public int resetDayCount() {
+    public String getAnimalInfo() {return info;}
+
+    public void createNewMap(){
+        model = new Tile[row][col];
+        subject = new PropertyChangeSupport[row][col];
         dayCount = 0;
-        return dayCount;
-    }
-
-    public int resetDeadCount() {
         deadCount = 0;
-        return deadCount;
+        filledCount = 0;
+        info = "Animal Info";
+
+        for (int i = 0; i < row; i++){
+            for (int j = 0; j < col; j++){
+                model[i][j] = new Tile();
+                subject[i][j] = new PropertyChangeSupport(this);
+                subject[i][j].addPropertyChangeListener(view.getTileView(i,j));
+            }
+        }
     }
 
-    public int resetFilledCount(){
-        filledCount = 0;
-        return filledCount;
+    public void setDisplay(SavannahView newView){
+        view= newView;
+    }
+
+    public void setAction(ComboBox e){
+        type = (String) e.getSelectionModel().getSelectedItem();
+        System.out.println(type);
+    }
+
+    public void setOption(RadioButton e){
+        option = e.getText();
+        System.out.println(option);
     }
 
     public void newDay(){
         dayCount += 1;
+
+        for (int i= 0; i < row; i++){
+            for (int j= 0; j < col; j++){
+                Animal temp = model[i][j].getAnimal();
+                if (temp != null){
+                    if (temp.newDay() == 0 && temp.getName() != "None"){
+                        model[i][j].newAnimal("","None");
+                        deadCount ++;
+                        filledCount --;
+                    }
+                    subject[i][j].firePropertyChange("Update", 0, model[i][j].getAnimal());
+                }
+            }
+        }
     }
 
-    public int getRowSize(){return row;}
-    public int getColSize(){return col;}
+    public void handleAdd(int i, int j) {
+        Boolean hasAnimal = false;
+        if (model[i][j].getAnimal() == null || model[i][j].getAnimal().getName() == "None") {
+            hasAnimal = true;
+        }
 
-    public void setIsAddAnimal(boolean value){ isAddAnimal = value;}
-    public void setIsViewAnimal(boolean value){ isViewAnimal = value;}
+        model[i][j].newAnimal(option, type);
+        if (hasAnimal) {
+            filledCount++;
+        }
 
-    public void setAnimal(String value) {animal = value;}
+        subject[i][j].firePropertyChange("Add", 0, model[i][j].getAnimal());
+    }
 
-    public boolean getIsAddAnimal(){return isAddAnimal;}
+    public void handleView (int i, int j){
+        Animal animal = model[i][j].getAnimal();
+
+        if (animal != null){
+            if (animal.getName() != "None") {
+                info = animal.getName() + "\nHealth: " + animal.getHealth();
+            }
+            else{
+                info = "Animal Info";
+            }
+        }
+        else{
+            info = "Animal Info";
+        }
+        subject[i][j].firePropertyChange("Update Info", 0, model[i][j].getAnimal());
+    }
+
+    public boolean isAdd(){
+        if (option == "Add"){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 
 }
