@@ -4,6 +4,14 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
 import java.beans.PropertyChangeSupport;
 
+/**
+ * @file Savannah.java
+ * @author Raymond Daley
+ * @details
+ *
+ * This is the main controller for the model of the MVC this is where all of the functions that manipulate the data.
+ * */
+
 public class Savannah {
 
     private int dayCount;
@@ -18,29 +26,46 @@ public class Savannah {
     private SavannahView view;
     private String info;
 
-
-
+    /**
+     * This is the constructor for the class sets day, dead, and fill count as 0
+     */
     public Savannah (){
         dayCount = 0;
         deadCount = 0;
         filledCount = 0;
     }
 
-    public void setSize(int cols, int rows){
-        col = cols;
-        row = rows;
-
-        createNewMap();
-    }
+    /**
+     * Returns the value of the day count to the calling function
+     * @return
+     */
     public int getDayCount() {return dayCount;}
 
+    /**
+     * Returns the value of the dead count to the calling function
+     * @return
+     */
     public int getDeadCount() {return deadCount;}
 
+    /**
+     * Returns the value of the filled count to the calling function
+     * @return
+     */
     public int getFilledCount() {return filledCount;}
 
+    /**
+     * Returns the value of the animal information to the calling function
+     * @return
+     */
     public String getAnimalInfo() {return info;}
 
-    public void createNewMap(){
+
+    /**
+     * This is creates a new mapping of the grid view for the model.
+     * @param row
+     * @param col
+     */
+    public void createNewMap(int row, int col){
         model = new Tile[row][col];
         subject = new PropertyChangeSupport[row][col];
         dayCount = 0;
@@ -52,25 +77,39 @@ public class Savannah {
             for (int j = 0; j < col; j++){
                 model[i][j] = new Tile();
                 subject[i][j] = new PropertyChangeSupport(this);
-                subject[i][j].addPropertyChangeListener(view.getTileView(i,j));
+                subject[i][j].addPropertyChangeListener(view.getTheTile(i,j));
             }
         }
     }
 
+    /**
+     * This gets a copy of the Savannah view for the new mapping to be created.
+     * @param newView
+     */
     public void setDisplay(SavannahView newView){
         view= newView;
     }
 
+    /**
+     * This function gets the value of the combobox and stores the value
+     * @param e
+     */
     public void setAction(ComboBox e){
         type = (String) e.getSelectionModel().getSelectedItem();
-        System.out.println(type);
     }
 
+    /**
+     * This function gets the value of the Radiobuttons and stores the value
+     * @param e
+     */
     public void setOption(RadioButton e){
         option = e.getText();
-        System.out.println(option);
     }
 
+    /**
+     * This is the model manipulation of the new day button action. It adds days to the count. Calls the newday function
+     * for the animal and reduces the fill and increase dead count when needed.
+     */
     public void newDay(){
         dayCount += 1;
 
@@ -89,20 +128,30 @@ public class Savannah {
         }
     }
 
+    /**
+     * This function handles adding new animals to the tiles.
+     * @param i
+     * @param j
+     */
     public void handleAdd(int i, int j) {
-        Boolean hasAnimal = false;
+        Boolean doesNotHaveAnimal = false;
         if (model[i][j].getAnimal() == null || model[i][j].getAnimal().getName() == "None") {
-            hasAnimal = true;
+            doesNotHaveAnimal = true;
         }
 
         model[i][j].newAnimal(option, type);
-        if (hasAnimal) {
+        if (doesNotHaveAnimal) {
             filledCount++;
         }
 
         subject[i][j].firePropertyChange("Add", 0, model[i][j].getAnimal());
     }
 
+    /**
+     * This handles getting the view for each of the animals.
+     * @param i
+     * @param j
+     */
     public void handleView (int i, int j){
         Animal animal = model[i][j].getAnimal();
 
@@ -117,9 +166,13 @@ public class Savannah {
         else{
             info = "Animal Info";
         }
-        subject[i][j].firePropertyChange("Update Info", 0, model[i][j].getAnimal());
+        subject[i][j].firePropertyChange("View Info", 0, model[i][j].getAnimal());
     }
 
+    /**
+     * Return if the option is Add is true or not.
+     * @return
+     */
     public boolean isAdd(){
         if (option == "Add"){
             return true;

@@ -1,5 +1,12 @@
 package daley_raymond.savannah;
 
+/**
+ * @file Zebra.java
+ * @author Raymond Daley
+ * @details
+ * This holds all of the values of the zebra class.
+ * */
+
 public class Zebra  extends  Animal{
 
     Zebra(){
@@ -7,6 +14,5 @@ public class Zebra  extends  Animal{
         code = "Z:";
         health = 8;
         lossRate = 2;
-        visited = false;
     }
 }

@@ -10,31 +10,42 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
+/**
+ * @file Layout.java
+ * @author Raymond Daley
+ * @details
+ * The purpose of this file is build out the view of the program.
+ */
 
 public class Layout {
     SavannahView grid;
+    GridPane root;
     private Label day;
     private Label died;
     private Label filled;
     private Label animalInfo;
-    ComboBox<String> animalList;
-    GridPane root;
+    private ComboBox<String> animalList;
     private Button newDay;
     private Button size1;
     private Button size2;
     private Button size3;
-    ToggleGroup insertionSelector;
-    RadioButton addAnimal;
-    RadioButton viewAnimal;
+    private ToggleGroup insertionSelector;
+    private RadioButton addAnimal;
+    private RadioButton viewAnimal;
     private Controller controller;
 
 
-    public Layout(Controller ctrl) {
-        controller = ctrl;
-        controller.setLayout(this);
+    /**
+     * This is the constructor of the of the layout and also what produces the layout.
+     * It takes in an instince of controller as a passed in variable.
+     */
+    public Layout(Controller controller) {
+
         root = new GridPane();
         grid = new SavannahView(controller);
 
+
+//      Set up the row constrains for the Gridpane that everything resides in
         RowConstraints rc1 = new RowConstraints();
         rc1.setVgrow(Priority.ALWAYS);
         rc1.setPercentHeight(15);
@@ -49,6 +60,7 @@ public class Layout {
         rc4.setPercentHeight(33);
         root.getRowConstraints().addAll(rc1,rc2,rc3,rc4);
 
+//      Set up the column contraints for the Gridpane
         ColumnConstraints c1 = new ColumnConstraints();
         c1.setPercentWidth(15);
         ColumnConstraints c2 = new ColumnConstraints();
@@ -89,7 +101,6 @@ public class Layout {
         ObservableList<String> options = FXCollections.observableArrayList("Cheetah", "Zebra");
         animalList = new ComboBox<>(options);
         animalList.getSelectionModel().select(0);
-        animalList.setOnAction(controller.getComboBox());
 
         insertionSelector = new ToggleGroup();
         addAnimal = new RadioButton("Add");
@@ -100,34 +111,54 @@ public class Layout {
         viewAnimal = new RadioButton("View");
         viewAnimal.setToggleGroup(insertionSelector);
         viewAnimal.setAlignment(Pos.CENTER);
-        addAnimal.setOnAction(controller.getAddRadioButton());
-        viewAnimal.setOnAction(controller.getViewRadioButton());
 
         VBox vbox4 = new VBox(animalList, addAnimal,viewAnimal);
         vbox4.setAlignment(Pos.BOTTOM_CENTER);
-
 
         animalInfo = new Label("Animal Info");
         VBox vbox5 = new VBox(animalInfo);
         vbox5.setAlignment(Pos.CENTER);
 
-
+//      Add all components to the gridpane
         root.add(top,0,0, 3, 1);
         root.add(vbox4,0,1);
         root.add(vbox5, 0 ,2);
         root.add(grid, 1, 1,2,3);
-        newDay.addEventFilter(ActionEvent.ACTION, new Controller.NewDayButton());
+
+//      make all the neccessary function calls to the controller to handel the button presses.
+        newDay.addEventFilter(ActionEvent.ACTION, controller.getNewDay());
         size1.addEventFilter(ActionEvent.ACTION, controller.setNewMap(3,3));
         size2.addEventFilter(ActionEvent.ACTION, controller.setNewMap(5,5));
         size3.addEventFilter(ActionEvent.ACTION, controller.setNewMap(8,8));
+        animalList.setOnAction(controller.getComboBox());
+        addAnimal.setOnAction(controller.getAddRadioButton());
+        viewAnimal.setOnAction(controller.getViewRadioButton());
 
     }
 
+    /**
+     * This updates the day count label whenever the controller tells it to
+     * @param dayCount
+     */
     public void setDay(int dayCount){
         day.setText("Day: " + String.valueOf(dayCount));
     }
+    /**
+     * This updates the died count label whenever the controller tells it to
+     * @param diedCount
+     */
     public void setDied(int diedCount) { died.setText("Died: " + String.valueOf(diedCount));}
+
+    /**
+     * This updates the fill count label whenever teh controller tells it to
+     * @param fillCount
+     */
     public void setFilled(int fillCount) {filled.setText("Filled: " + String.valueOf(fillCount));}
+
+    /**
+     *
+     * @param info
+     */
     public void setAnimalInfo(String info) {animalInfo.setText(info);}
 
 }

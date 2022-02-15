@@ -190,7 +190,7 @@ public class MoreEvents extends Application {
 
                 //how to get the current selection without a event
                 Toggle monitor = ov.getValue();
-                String selected = group.getSelectedToggle().();
+                String selected = group.getSelectedToggle().toString();
                 System.out.println(selected);
                 boolean temp = rBtn1.isSelected();
 
