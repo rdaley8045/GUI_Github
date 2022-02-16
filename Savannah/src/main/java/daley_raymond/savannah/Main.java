@@ -40,9 +40,20 @@ package daley_raymond.savannah;
  *
  *
  * Final Tier: Extensions 30
- * Extension 1: <number> <points> <name>: <how to test/find if applicable>
- * Extension 2: <number> <points> <name>: <how to test/find if applicable>
- * Etc.
+ * Extension 1: 3a 10pt Add Hot-keys to 3+Buttons: Inorder to test this function all an user has to do is
+ * press the F1, F2, or F3 keys on the keyboard to set adjust the size of the map. F1 changes the map to a 3x3,
+ * F2 changes the map to a 5x5, and F3 changes the map to a 9x9. To find my code search for //GRADING: HOT KEYS
+ *
+ * Extension 2: 3b 15pt Add Menu Bar: In order to test this feature all a user has to do is click on the Resize drop-
+ * down on the upper left of the screen. From there the user can select to resize the map to a 3x3, 5x5 or 9x9 map.
+ * To find in my code search for //GRADING: MENU
+ *
+ * Extension 3: 4b 5pts Add 2+ more Animals Types: Inorder to test this feature all a user has to do it select the new
+ * animal from the dropdown menu. To find in my code search for //GRADING: NEW ANIMAL
+ *
+ * Extension 4: 2d 10pts Add Color to buttons: This feature can be tested by clicking on the tills with which ever
+ * animal that they choose. Also inorder to verify that the animal and color match a Color key was added to the home-
+ * page. To find in my code search for  //GRADING:COLOR
  *
  *
  * The grade you compute is the starting point for course staff, who reserve the right to change the grade if
@@ -109,9 +120,9 @@ public class Main extends Application {
 
         layout = new Layout(controller);
 
-        controller.setLayout(layout);
+        controller.setTheLayout(layout);
 
-        controller.setModel(savannah);
+        controller.setTheGridWithModel(savannah);
 
         Scene scene = new Scene(layout.root,WIDTH , HEIGHT);
         primaryStage.setScene(scene);

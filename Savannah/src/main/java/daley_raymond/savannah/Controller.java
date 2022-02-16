@@ -1,11 +1,9 @@
 package daley_raymond.savannah;
 
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
-import javafx.scene.control.ToggleGroup;
 
 /**
  * @file Controller.java
@@ -21,7 +19,7 @@ public class Controller {
      * Provides the controller with a copy of the layout.
      * @param lay
      */
-    public void setLayout(Layout lay){
+    public void setTheLayout(Layout lay){
         layout = lay;
     }
 
@@ -29,7 +27,7 @@ public class Controller {
      * This set the view of the grid for the layout.
      * @param model
      */
-    public void setModel(Savannah model){
+    public void setTheGridWithModel(Savannah model){
         savannah = model;
         layout.grid.setModel();
         savannah.setDisplay(layout.grid);
@@ -152,8 +150,6 @@ public class Controller {
 
             if(savannah.isAdd()) {
                 savannah.handleAdd(button.getI(), button.getJ());
-                layout.setDay(savannah.getDayCount());
-                layout.setDied(savannah.getDeadCount());
                 layout.setFilled(savannah.getFilledCount());
             }
             else{
@@ -162,5 +158,8 @@ public class Controller {
             }
         }
     }
+
+
+
 
 }

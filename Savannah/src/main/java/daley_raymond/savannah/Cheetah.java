@@ -13,5 +13,7 @@ public class Cheetah extends Animal {
         code = "C:";
         health = 10;
         lossRate = 1;
+        //GRADING:COLOR
+        color = "-fx-boarder-color:black; -fx-background-color:rgba(61, 235, 52, 0.76);";
     }
 }

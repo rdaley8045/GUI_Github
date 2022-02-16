@@ -27,15 +27,6 @@ public class Savannah {
     private String info;
 
     /**
-     * This is the constructor for the class sets day, dead, and fill count as 0
-     */
-    public Savannah (){
-        dayCount = 0;
-        deadCount = 0;
-        filledCount = 0;
-    }
-
-    /**
      * Returns the value of the day count to the calling function
      * @return
      */
@@ -68,18 +59,20 @@ public class Savannah {
     public void createNewMap(int row, int col){
         model = new Tile[row][col];
         subject = new PropertyChangeSupport[row][col];
-        dayCount = 0;
-        deadCount = 0;
-        filledCount = 0;
-        info = "Animal Info";
 
         for (int i = 0; i < row; i++){
             for (int j = 0; j < col; j++){
                 model[i][j] = new Tile();
                 subject[i][j] = new PropertyChangeSupport(this);
+                //GRADING: SUBJECT
                 subject[i][j].addPropertyChangeListener(view.getTheTile(i,j));
             }
         }
+        dayCount = 0;
+        deadCount = 0;
+        filledCount = 0;
+        info = "Animal Info";
+
     }
 
     /**
@@ -122,6 +115,7 @@ public class Savannah {
                         deadCount ++;
                         filledCount --;
                     }
+                    //GRADING: TRIGGER
                     subject[i][j].firePropertyChange("Update", 0, model[i][j].getAnimal());
                 }
             }
@@ -143,7 +137,7 @@ public class Savannah {
         if (doesNotHaveAnimal) {
             filledCount++;
         }
-
+        //GRADING: TRIGGER
         subject[i][j].firePropertyChange("Add", 0, model[i][j].getAnimal());
     }
 
@@ -166,6 +160,7 @@ public class Savannah {
         else{
             info = "Animal Info";
         }
+        //GRADING: TRIGGER
         subject[i][j].firePropertyChange("View Info", 0, model[i][j].getAnimal());
     }
 

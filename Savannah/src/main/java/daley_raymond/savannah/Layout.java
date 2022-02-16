@@ -7,8 +7,12 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.input.*;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 /**
  * @file Layout.java
@@ -32,7 +36,12 @@ public class Layout {
     private ToggleGroup insertionSelector;
     private RadioButton addAnimal;
     private RadioButton viewAnimal;
-    private Controller controller;
+    private Text colorChoose;
+    private Text elephantLabel;
+    private Text cheetahLabel;
+    private Text lionLabel;
+    private Text warthogLabel;
+    private Text zebraLabel;
 
 
     /**
@@ -48,10 +57,10 @@ public class Layout {
 //      Set up the row constrains for the Gridpane that everything resides in
         RowConstraints rc1 = new RowConstraints();
         rc1.setVgrow(Priority.ALWAYS);
-        rc1.setPercentHeight(15);
+        rc1.setPercentHeight(18);
         RowConstraints rc2 = new RowConstraints();
         rc2.setVgrow(Priority.ALWAYS);
-        rc2.setPercentHeight(18);
+        rc2.setPercentHeight(15);
         RowConstraints rc3 = new RowConstraints();
         rc3.setVgrow(Priority.ALWAYS);
         rc3.setPercentHeight(33);
@@ -69,11 +78,19 @@ public class Layout {
         c3.setPercentWidth(15);
         root.getColumnConstraints().addAll(c1,c2,c3);
 
+        MenuBar menuBar = new MenuBar();
+        Menu mainMenu = new Menu ("Resize");
+        MenuItem size4 = new MenuItem("3x3");
+        MenuItem size5 = new MenuItem("5x5");
+        MenuItem size6 = new MenuItem("8x8");
+        mainMenu.getItems().addAll(size4,size5,size6);
+        menuBar.getMenus().add(mainMenu);
         /*
         Board pane for the top side of the top screen
          */
         BorderPane top = new BorderPane();
 
+        top.setTop(menuBar);
         Label resize = new Label("Resize: ");
         size1 = new Button("3X3");
         size2 = new Button("5X5");
@@ -98,7 +115,7 @@ public class Layout {
         /*
         Board pane for the left side of the center screen
          */
-        ObservableList<String> options = FXCollections.observableArrayList("Cheetah", "Zebra");
+        ObservableList<String> options = FXCollections.observableArrayList("Cheetah", "Zebra","Elephant", "Lion", "Warthog");
         animalList = new ComboBox<>(options);
         animalList.getSelectionModel().select(0);
 
@@ -119,10 +136,42 @@ public class Layout {
         VBox vbox5 = new VBox(animalInfo);
         vbox5.setAlignment(Pos.CENTER);
 
+
+        //GRADING:COLOR
+        colorChoose = new Text("Color Choose:");
+        colorChoose.setFont(Font.font(String.valueOf(FontWeight.BOLD), FontPosture.REGULAR, 15));
+
+        elephantLabel = new Text("Elephant");
+        elephantLabel.setFont(Font.font(String.valueOf(FontWeight.BOLD), FontPosture.REGULAR, 15));
+        elephantLabel.setFill(Color.valueOf("rgba(191, 186, 189, 1)"));
+
+        cheetahLabel = new Text("Cheetah");
+        cheetahLabel.setFont(Font.font(String.valueOf(FontWeight.BOLD), FontPosture.REGULAR, 15));
+        cheetahLabel.setFill(Color.valueOf("rgba(61, 235, 52, 0.76)"));
+
+        lionLabel = new Text("Lion");
+        lionLabel.setFont(Font.font(String.valueOf(FontWeight.BOLD), FontPosture.REGULAR, 15));
+        lionLabel.setFill(Color.valueOf("rgba(52, 122, 235, 0.76)"));
+
+        warthogLabel = new Text("Warthog");
+        warthogLabel.setFont(Font.font(String.valueOf(FontWeight.BOLD), FontPosture.REGULAR, 15));
+        warthogLabel.setFill(Color.valueOf("rgba(156, 106, 7, 1)"));
+
+        zebraLabel = new Text("Zebra");
+        zebraLabel.setFont(Font.font(String.valueOf(FontWeight.BOLD), FontPosture.REGULAR, 15));
+        zebraLabel.setFill(Color.valueOf("rgba(102, 32, 99, 1)"));
+
+
+        VBox vbox6 = new VBox(colorChoose,elephantLabel,cheetahLabel,lionLabel,warthogLabel,zebraLabel);
+        vbox6.setAlignment(Pos.CENTER);
+        vbox6.setStyle("-fx-background-color: white;");
+
+
 //      Add all components to the gridpane
         root.add(top,0,0, 3, 1);
         root.add(vbox4,0,1);
         root.add(vbox5, 0 ,2);
+        root.add(vbox6, 0, 3);
         root.add(grid, 1, 1,2,3);
 
 //      make all the neccessary function calls to the controller to handel the button presses.
@@ -134,6 +183,15 @@ public class Layout {
         addAnimal.setOnAction(controller.getAddRadioButton());
         viewAnimal.setOnAction(controller.getViewRadioButton());
 
+        //GRADING: MENU
+        size4.setOnAction(controller.setNewMap(3,3));
+        size5.setOnAction(controller.setNewMap(5,5));
+        size6.setOnAction(controller.setNewMap(9,9));
+
+        //GRADING: HOT KEYS
+        size4.setAccelerator(new KeyCodeCombination(KeyCode.F1));
+        size5.setAccelerator(new KeyCodeCombination(KeyCode.F2));
+        size6.setAccelerator(new KeyCodeCombination(KeyCode.F3));
     }
 
     /**
@@ -160,5 +218,6 @@ public class Layout {
      * @param info
      */
     public void setAnimalInfo(String info) {animalInfo.setText(info);}
+
 
 }

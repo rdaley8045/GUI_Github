@@ -14,5 +14,8 @@ public class Zebra  extends  Animal{
         code = "Z:";
         health = 8;
         lossRate = 2;
+        //GRADING:COLOR
+        color = "-fx-background-color: rgba(102, 32, 99, 0.76);";
+
     }
 }

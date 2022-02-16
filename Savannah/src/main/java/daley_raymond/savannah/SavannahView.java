@@ -37,17 +37,13 @@ public class SavannahView extends GridPane {
         //Create an Array list of the grid
         grid = new ArrayList<>();
 
-        //build out column constraints
+        //build out row and column constraints
         ColumnConstraints columnConstraints = new ColumnConstraints();
         columnConstraints.setPercentWidth(100);
-        for (int i = 0; i < cols; i++) {
-            this.getColumnConstraints().add(columnConstraints);
-        }
-
-        //build out the row constraints
         RowConstraints rowConstraints = new RowConstraints();
         rowConstraints.setPercentHeight(100);
-        for (int i = 0; i < rows; i++) {
+        for (int i = 0; i < cols; i++) {
+            this.getColumnConstraints().add(columnConstraints);
             this.getRowConstraints().add(rowConstraints);
         }
 
@@ -80,7 +76,7 @@ public class SavannahView extends GridPane {
     }
 
     /**
-     * This is the getter for the tile tiles.
+     * This returns the value of a specific tile that is being called form the arraylist
      * @param i
      * @param j
      * @return

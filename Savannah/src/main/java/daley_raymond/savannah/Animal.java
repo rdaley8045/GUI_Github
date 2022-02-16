@@ -13,6 +13,7 @@ public abstract class Animal{
     protected String code;
     protected int health;
     protected int lossRate;
+    protected String color;
 
     /**
      * This function is called when the new day button is pressed is decrease the health by that animals loss rate
@@ -47,5 +48,7 @@ public abstract class Animal{
      */
     public String getCode(){return code;}
 
+    //GRADING:COLOR
+    public String getColor() {return color;}
 
 }

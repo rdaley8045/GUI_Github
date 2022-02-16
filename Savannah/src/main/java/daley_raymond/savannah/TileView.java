@@ -48,12 +48,14 @@ public class TileView extends Button  implements PropertyChangeListener {
      * animal code and health
      * @param evt
      */
+
+    //GRADING: OBSERVE
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        Animal newAnimal = (Animal) evt.getNewValue();
-        if (newAnimal != null){
-            setText(newAnimal.getCode() + newAnimal.getHealth());
-        }
+        Animal animal = (Animal) evt.getNewValue();
+        setText(animal.getCode() + animal.getHealth());
+        //GRADING:COLOR
+        setStyle(animal.getColor());
     }
 
 }
