@@ -4,37 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="48d715c9-014d-4c6f-88b4-94b6cb556eed" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Elephant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Lion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Warthog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Animal.java" afterDir="false" />
+    <list default="true" id="48d715c9-014d-4c6f-88b4-94b6cb556eed" name="Changes" comment="Project Complete and submitted.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Cheetah.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Cheetah.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Layout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Layout.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Savannah.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Savannah.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/SavannahView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/SavannahView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Tile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/TileView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/TileView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Zebra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/daley_raymond/savannah/Zebra.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/daley_raymond/savannah/Animal.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/daley_raymond/savannah/Animal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/daley_raymond/savannah/Cheetah.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/daley_raymond/savannah/Cheetah.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/daley_raymond/savannah/Controller$NewDayButton.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/daley_raymond/savannah/Controller$NewDayButton.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/daley_raymond/savannah/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/daley_raymond/savannah/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/daley_raymond/savannah/Layout.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/daley_raymond/savannah/Layout.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/daley_raymond/savannah/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/daley_raymond/savannah/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/daley_raymond/savannah/Savannah.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/daley_raymond/savannah/Savannah.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/daley_raymond/savannah/SavannahView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/daley_raymond/savannah/SavannahView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/daley_raymond/savannah/Tile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/daley_raymond/savannah/Tile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/daley_raymond/savannah/TileView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/daley_raymond/savannah/TileView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/daley_raymond/savannah/Zebra.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/daley_raymond/savannah/Zebra.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +15,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -90,6 +65,29 @@
       <option name="presentableId" value="Default" />
       <updated>1645052420121</updated>
     </task>
+    <task id="LOCAL-00001" summary="Project Complete and submitted.">
+      <created>1645055328821</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1645055328821</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Project Complete and submitted." />
+    <option name="LAST_COMMIT_MESSAGE" value="Project Complete and submitted." />
   </component>
 </project>

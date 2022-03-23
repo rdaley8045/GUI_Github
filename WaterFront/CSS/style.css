@@ -1,0 +1,59 @@
+/*Nav Bar*/
+
+.d-line-block{
+    width: 2em;
+    height: 2em;
+}
+
+.navbar-nav > .nav-item > .nav-link{
+    color: black;
+}
+
+body{
+    background-color: bisque;
+}
+
+/* Home Page */
+.buttons{
+    text-align: center;
+}
+/*Checklist*/
+ol.lowerLetter{
+    list-style-type: lower-alpha;
+}
+
+.content{
+    margin: .2em 0em .2em .2em;
+}
+
+.btn{
+    background-color: lightslategrey;
+}
+
+.line{
+    margin-top: 4rem;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 2rem;
+    width: 75%;
+    height: 1rem;
+    border: 1rem solid;
+    color: blue ;
+    opacity: 100%;
+
+}
+
+.btn-spaces{
+    margin: 1rem 0rem 1rem 0rem;
+}
+
+.types{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 75%;
+    margin-right: auto;
+    margin-left: auto;
+
+}
