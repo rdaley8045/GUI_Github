@@ -9,6 +9,10 @@
     color: black;
 }
 
+nav.bg-light{
+    background-color: cornflowerblue !important;
+}
+
 body{
     background-color: bisque;
 }
@@ -30,30 +34,51 @@ ol.lowerLetter{
     background-color: lightslategrey;
 }
 
-.line{
-    margin-top: 4rem;
-    margin-right: auto;
-    margin-left: auto;
-    margin-bottom: 2rem;
-    width: 75%;
+hr.line{
+    margin: 2rem auto 2rem;
     height: 1rem;
-    border: 1rem solid;
-    color: blue ;
+    border: 1rem solid blue;
     opacity: 100%;
+    colspan: 100%;
+    width: 75%;
 
+}
+
+hr.road{
+    margin: 2rem auto 1rem;
+
+    height: 2rem;
+    border-top: .75rem solid slategrey;
+    border-bottom: .75rem solid slategrey;
+    color: yellow;
+    opacity: 100%;
 }
 
 .btn-spaces{
     margin: 1rem 0rem 1rem 0rem;
 }
 
-.types{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    width: 75%;
-    margin-right: auto;
-    margin-left: auto;
+/*.types{*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    justify-content: space-around;*/
+/*    align-items: center;*/
+/*    width: 75%;*/
+/*    margin-right: auto;*/
+/*    margin-left: auto;*/
+/*}*/
 
+#emptyTable{
+    width:100%;
+    text-align:center;
+    border-collapse:collapse;
+    border: none;
+}
+#table{
+    width:75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.water{
+    border-style: hidden !important;
 }

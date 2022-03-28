@@ -6,11 +6,19 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Help</title>
+    <link rel="icon" type="image/x-icon" href="Images/outline_real_estate_agent_black_24dp.png">
+
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="CSS/style.css">
+
+    <script src="Javascript/Table.js"></script>
+    <script src="Javascript/UndoRedo.js"></script>
+    <script src="Javascript/script.js"></script>
+
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
             integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
@@ -18,6 +26,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
             integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
             crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
 
 </head>
 <body>
@@ -25,7 +35,7 @@
     <div class="container-fluid">
         <a class="navbar-brand" href="index.php">
             <img src="Images/outline_real_estate_agent_black_24dp.png" alt="Real Estate Logo"
-                 class="d-line-block align-text-top">
+                 class="d-line-block align-text-center">
             Water Front Properties
         </a>
         <ul class="navbar-nav ms-auto">
@@ -47,6 +57,9 @@
 
 <div id="Description">
     <h4 class="Description">Description</h4>
+    <p>This program is designed to act as an imitator of a water front property purchasing system. The
+    program allows the user to "purchase" 5 different property types in 5 different locations along the
+    water front. When a row is </p>
 </div>
 <div id="Checklist">
     <h4 class="Checklist">Checklist</h4>
