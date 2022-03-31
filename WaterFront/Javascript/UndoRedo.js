@@ -1,34 +1,65 @@
 // GRADING: MANAGE
 // GRADING: COMMAND
-class UndoRedo{
-    constructor() {
-        this.steps = [];
+
+class History {
+    constructor(){
+        this.UndoRedos = [];
         this.index = 0;
     }
 
-    addAction(action, func, undoArgument, redoArgument) {
-        if (this.index < this.steps.length) {
-            this.steps.splice(this.index, this.steps.length - this.index);
+    executeAction(json, redo = false){
+        this.UndoRedos.length = this.index;
+        this.UndoRedos.push(json);
+        if (!redo) {
+            this.index = this.UndoRedos.length
         }
-
-        this.steps.push({action, func, undoArgument, redoArgument});
-
-        this.index += 1;
+        console.log(this.UndoRedos.length);
+        console.log(this.index);
     }
 
-    undo() {
-        if (this.index > 0) {
-            let action = this.steps[this.index - 1];
-            action.func.call(action.call, ...action.undoArg);
-            this.index -= 1;
+    undoCmd(){
+        if(this.index > 0)
+        {
+            let json = this.UndoRedos[this.index-1];
+
+            this.index= this.index - 1;
+            let replace = (key, value) => {
+                if(key === 'undoRedo') return undefined;
+                else if(key === 'buildings') return undefined;
+                else if(key === 'history') return undefined;
+                else return value;
+            }
+
+            return JSON.stringify(json, replace);
+        }else{
+            return undefined;
         }
     }
 
-    redo() {
-        if (this.index <= this.steps.length) {
-            let action = this.steps[this.index];
-            action.func.call(action.call, ...action.redoArg);
-            this.index += 1;
+    redoCmd(){
+        if(this.index < this.UndoRedos.length)
+        {
+            this.index = this.index + 1;
+            console.log("redo index");
+            console.log(this.index);
+            var json = this.UndoRedos[this.index];
+            let replace = (key, value) => {
+                if(key === 'undoRedo') return undefined;
+                else if(key === 'buildings') return undefined;
+                else if(key === 'history') return undefined;
+                else return value;
+            }
+
+
+            return JSON.stringify(json, replace);
+        }else{
+            return undefined;
         }
+    }
+
+    getCount(){
+        return this.UndoRedos.length;
     }
 }
+
+

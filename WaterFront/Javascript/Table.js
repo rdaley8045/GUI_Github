@@ -1,23 +1,15 @@
 class Table{
-    buildings =['none','home','hotel','apartment', 'business', 'deck'];
+    buildings =['home','hotel','hotel','hotel', 'hotel', 'home','hotel','hotel','home', 'none'];
 
     constructor() {
         this.rows = []
         this.position=0
-        this.createTable()
-        this.old = {};
-    }
 
-    addUndoRedo(undo){
-        this.undoRedo = undo;
     }
 
 
     createTable() {
 
-        if(this.undoRedo !== undefined){
-            this.old = this.wrapper();
-        }
         let empTable = document.createElement('table');
         empTable.setAttribute('id', 'emptyTable'); // table id.
         let imageRow = empTable.insertRow(0);
@@ -53,38 +45,33 @@ class Table{
         }
         let div = document.getElementById('table');
         div.appendChild(empTable);
-
-        if (this.undoRedo !== undefined){
-            let newState = this.wrapper();
-            this.undoRedo.addAction(this, this.load, [this.old,true], [newState, true]);
-        }
     }
 
 
 
 // now, add a new to the TABLE.
-    addRow() {
+    addRow(load=false) {
         let empTab = document.getElementById('emptyTable');
         let rowCnt = empTab.rows.length;   // table row count.
         let waterRow = empTab.insertRow(rowCnt);
         let imageRow = empTab.insertRow(rowCnt+1);
         let selectRow = empTab.insertRow(rowCnt+2);
-        this.createRows(waterRow,imageRow, selectRow, empTab)
+        this.createRows(waterRow,imageRow, selectRow, empTab, load)
 
     }
 
-    createRows(waterRow,imageRow,selectRow, empTable){
+    createRows(waterRow,imageRow,selectRow, empTable, load){
         for (let i = 0; i < 5; i++) {
             const selectTd = document.createElement('td');
             const select = document.createElement('select');
             select.setAttribute('id', 'select'+this.position);
             select.setAttribute('onchange', 'purchaseProperty('+(this.position)+')');
             select.innerHTML="  <option value=\"none\">None</option>\n" +
-                            "  <option value=\"home\">Home</option>\n" +
-                            "  <option value=\"hotel\">Hotel</option>\n" +
-                            "  <option value=\"apartment\">Apartment</option>\n"+
-                            "  <option value='business'>Business</option>\n"+
-                            "  <option value='deck'>Deck</option>"
+                "  <option value=\"home\">Home</option>\n" +
+                "  <option value=\"hotel\">Hotel</option>\n" +
+                "  <option value=\"apartment\">Apartment</option>\n"+
+                "  <option value='business'>Business</option>\n"+
+                "  <option value='deck'>Deck</option>"
 
             selectTd.appendChild(select)
             selectRow.appendChild(selectTd)
@@ -108,22 +95,20 @@ class Table{
             imageRow.appendChild(image);
 
             this.position++;
-            this.rows.push('none');
+            if (!load) {
+                this.rows.push('none');
+            }
         }
         let div = document.getElementById('table');
         div.appendChild(empTable);
 
-        if (this.undoRedo !== undefined){
-            let newState = this.wrapper();
-            this.undoRedo.addAction(this, this.load, [this.old,true], [newState, true]);
-        }
     }
 
     wrapper() {
         let replace = (key, value) => {
             if(key === 'undoRedo') return undefined;
             else if(key === 'buildings') return undefined;
-            else if(key === 'old') return undefined;
+            else if(key === 'history') return undefined;
             else return value;
         }
 
@@ -131,28 +116,43 @@ class Table{
         return JSON.stringify(this, replace);
     }
 
-    load(json) {
+    load(json, undo =false) {
+        if (undo) {
+            this.resetHousing();
+        }
+        let currentSize = this.position;
+        let currentRows = 0;
         let table = JSON.parse(json);
+
         let size = table.position;
         this.rows = table.rows;
+
+        if (currentSize > 0) {
+            currentRows = currentSize / 5;
+            currentRows--;
+        }
         let rows = size/5;
+
         rows--;
-        if (rows !== 0){
+
+        if (currentRows < rows){
             for (let i = 0; i < rows; i++) {
-                this.addRow()
+                console.log('Tag');
+                this.addRow(true)
             }
         }
         for(let i = 0; i < size; i++){
-            this.update(i, table.rows[i]);
+            this.update(i,undo, table.rows[i]);
         }
     }
 
-    update(positions, value = 'none'){
-        console.log(positions);
-        if (value === 'none') {
+
+
+    update(positions, undo, value = 'none'){
+        if (value === 'none' && !undo) {
             value = document.getElementById('select' + positions).value;
         }
-        console.log(value);
+
         let select = document.getElementById('select' + positions);
         switch (value){
             case 'home':
@@ -227,20 +227,20 @@ class Table{
     allHotel(){
         let current = (this.position-1);
         for (let i = 0; i < 5; i++) {
-            this.update(current,'hotel');
+            this.update(current,false,'hotel');
             current --;
         }
     }
 
     mixHousing(){
-        let current = (this.position-1);
-        for (let i=0; i < 5; i++){
-            let random = Math.floor(Math.random()*(6-1)+1)
-            console.log(random);
-            let building = this.buildings[random]
-            console.log(building);
-            this.update(current, building)
-            current --;
+        if (this.rows.length < 10){
+            this.addRow();
+        }
+        let current = (this.rows.length-10);
+        for (let i=0; i < 10; i++){
+            let building = this.buildings[i]
+            this.update(current,false, building)
+            current ++;
         }
     }
 
@@ -252,13 +252,13 @@ class Table{
             empTab.deleteRow(i);
         }
         for (let i = this.position -1; i > 4; i--){
-            console.log(i);
+
             this.rows.pop()
         }
         this.position = 5;
         for (let i = 0; i < this.position; i++){
-
-            this.update(i,'sale');
+            this.rows[i] = 'none';
+            this.update(i,true,'none');
         }
     }
 }

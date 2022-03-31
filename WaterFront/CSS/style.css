@@ -1,4 +1,9 @@
-/*Nav Bar*/
+a {
+    color: black;
+}
+a:active{
+    color: red;
+}
 
 .d-line-block{
     width: 2em;
@@ -40,7 +45,7 @@ hr.line{
     border: 1rem solid blue;
     opacity: 100%;
     colspan: 100%;
-    width: 75%;
+    width: 95%;
 
 }
 
@@ -58,27 +63,44 @@ hr.road{
     margin: 1rem 0rem 1rem 0rem;
 }
 
-/*.types{*/
-/*    display: flex;*/
-/*    flex-direction: row;*/
-/*    justify-content: space-around;*/
-/*    align-items: center;*/
-/*    width: 75%;*/
-/*    margin-right: auto;*/
-/*    margin-left: auto;*/
-/*}*/
 
 #emptyTable{
-    width:100%;
+    width:95%;
     text-align:center;
     border-collapse:collapse;
     border: none;
 }
 #table{
-    width:75%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
 .water{
     border-style: hidden !important;
+}
+
+#front{
+    margin:2rem auto 2rem;
+    padding-bottom: 2rem;
+    width: 80%;
+    border: .5rem dashed black;
+    opacity: 100%;
+}
+
+.navbar-nav > .nav-item > a:hover{
+    background-color: mintcream;
+}
+
+nav.navbar-light >.container-fluid>.navbar-brand:hover{
+    background-color: mintcream !important;
+}
+
+h4 {
+    font-family: fantasy,sans-serif;
+}
+
+.help{
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
 }
