@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <edu.sdsmt.stop_the_tribbles_daley_raymond.GameView
+        android:id="@+id/gameView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonContraint" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ButtonContraint"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TextConstraint">
+
+        <Button
+            android:id="@+id/reset"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="onReset"
+            android:text="Reset"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/distractBtn"
+            app:layout_constraintTop_toBottomOf="@+id/collectBtn" />
+
+        <Button
+            android:id="@+id/collectBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="onCollect"
+            android:text="Collect Tribbles"
+            app:layout_constraintBottom_toTopOf="@+id/reset"
+            app:layout_constraintEnd_toStartOf="@+id/eatBtn"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/dayBtn"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/distractBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="onDistract"
+            android:text="Distract"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/reset"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/collectBtn" />
+
+        <Button
+            android:id="@+id/dayBtn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:onClick="onNewDay"
+            android:text="New Day"
+            app:layout_constraintBottom_toTopOf="@+id/distractBtn"
+            app:layout_constraintEnd_toStartOf="@+id/collectBtn"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/eatBtn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:onClick="onEat"
+            android:text="Eat: 3"
+            app:layout_constraintBottom_toTopOf="@+id/reset"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/collectBtn"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/TextConstraint"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/scoreCnt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Score: 0"
+            app:layout_constraintBottom_toTopOf="@+id/tribbleCnt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tribbleCnt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tribbles: 100"
+            app:layout_constraintBottom_toTopOf="@+id/hungerCnt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/scoreCnt" />
+
+        <TextView
+            android:id="@+id/hungerCnt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hunger: 0"
+            app:layout_constraintBottom_toTopOf="@+id/daysCnt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tribbleCnt" />
+
+        <TextView
+            android:id="@+id/daysCnt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Days: 1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hungerCnt" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
